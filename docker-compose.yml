@@ -1,0 +1,22 @@
+version: "3"
+services:
+  postgredb: 
+    image: 'postgres'
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=dbadmin
+  users:
+    build:
+      context: ./user
+      dockerfile: Dockerfile
+    depends_on:
+      - postgredb
+  nginx:
+    restart: always
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - '3050:80'
+    depends_on:
+      - users
