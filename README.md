@@ -16,6 +16,8 @@ and install docker compose:
 
 ### Bootstrapping
 
+use postgresql password to `./user/config.env` and `./docker-compose.yml` files
+
 use this command in your bash/terminal
 
 ```bash
